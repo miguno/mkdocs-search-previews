@@ -11,13 +11,19 @@ As soon as any `<h[1-6]>` tag is in [docs/snippet.txt](docs/snippet.txt), the se
 * None of the text in the snippet is included in the preview.
 * None of the text in `docs/index.md` that appears *after* the snippet is included in the preview.
 
-Example screenshots:
+**Example screenshots**
 
-![](fails-1.png)
+Search result preview for text that occurs *before* the embedded snippet: 🟢 WORKS
 
-![](fails-2.png)
+> ![](fails-1.png)
 
-![](fails-3.png)
+Search result preview for text that occurs *inside* the embedded snippet: 🔴 FAILS
+
+> ![](fails-2.png)
+
+Search result preview for text that occurs *after* the embedded snippet: 🔴 FAILS
+
+> ![](fails-3.png)
 
 
 ## Works fine when no `<hX>` tag is in the embedded snippet
@@ -25,14 +31,23 @@ Example screenshots:
 Replacing the `<h3>` tag in [docs/snippet.txt](docs/snippet.txt) with any other HTML tag, like `<p>`, `<code>`, or even `<head>`,
 fixes the broken search result previews.
 
-![](works-1.png)
+Search result preview for text that occurs *before* the embedded snippet: 🟢 WORKS
 
-![](works-2.png)
+> ![](works-1.png)
 
-![](works-3.png)
+Search result preview for text that occurs *inside* the embedded snippet: 🟢 WORKS
 
-*Environment*
+> ![](works-2.png)
 
+Search result preview for text that occurs *after* the embedded snippet: 🟢 WORKS
+
+> ![](works-3.png)
+
+
+## Environment
+
+* macOS 10.15.7
+* Python 3.9.1
 * mkdocs v1.1.2
 * mkdocs-material v6.2.8
 * mkdocs-material-extensions v1.0.1
